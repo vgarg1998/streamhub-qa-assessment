@@ -1,0 +1,15 @@
+{
+  "request": {
+    "title": "₹ € £ ¥ « » <script>alert(1)</script> \"quotes\" 'apostrophe' & 😀",
+    "body": "boundary check",
+    "userId": 1
+  },
+  "status": 201,
+  "contentType": "application/json; charset=utf-8",
+  "body": {
+    "title": "₹ € £ ¥ « » <script>alert(1)</script> \"quotes\" 'apostrophe' & 😀",
+    "body": "boundary check",
+    "userId": 1,
+    "id": 101
+  }
+}

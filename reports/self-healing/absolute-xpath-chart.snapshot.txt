@@ -1,0 +1,39 @@
+- banner:
+  - link "Loanboard":
+    - /url: /
+  - navigation "Primary":
+    - link "Dashboard":
+      - /url: /
+    - link "Repayment report":
+      - /url: /report.html?amount=2500000&rate=10&years=10
+- main:
+  - paragraph: Home loan desk
+  - heading "Loan dashboard" [level=1]
+  - paragraph: A reducing-balance summary of the loan on the desk. Change the loan in the repayment report and the figures here follow.
+  - paragraph: ₹25,00,000 at 10% for 10 years
+  - region "Loan summary":
+    - article:
+      - heading "Monthly EMI" [level=2]
+      - paragraph: ₹33,038
+    - article:
+      - heading "Total interest" [level=2]
+      - paragraph: ₹14,64,500
+    - article:
+      - heading "Total payment" [level=2]
+      - paragraph: ₹39,64,500
+    - article:
+      - heading "Principal" [level=2]
+      - paragraph: ₹25,00,000
+  - heading "Payment breakup" [level=2]
+  - paragraph: Principal against the interest you pay over the full tenure. Both slices come from the same schedule as the cards above.
+  - list:
+    - listitem:
+      - text: Principal
+      - strong: ₹25,00,000
+    - listitem:
+      - text: Interest
+      - strong: ₹14,64,500
+  - link "Open repayment report":
+    - /url: /report.html?amount=2500000&rate=10&years=10
+  - img "Payment breakup chart. Principal 2500000. Interest 1464500."
+  - paragraph: The instalment is rounded to the nearest rupee. Interest is the sum of each month’s rounded interest, so it can differ by a few rupees from EMI × months − principal.

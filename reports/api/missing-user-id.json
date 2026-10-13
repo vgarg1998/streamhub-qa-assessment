@@ -1,0 +1,13 @@
+{
+  "request": {
+    "title": "No user",
+    "body": "missing userId"
+  },
+  "status": 201,
+  "contentType": "application/json; charset=utf-8",
+  "body": {
+    "title": "No user",
+    "body": "missing userId",
+    "id": 101
+  }
+}

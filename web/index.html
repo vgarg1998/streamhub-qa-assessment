@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Loan dashboard — Loanboard</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">
+        <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#e7c7a1" />
+          <path d="M8 21.5 16 9.5l8 12" fill="none" stroke="#14261e" stroke-width="2" />
+          <path d="M11 21.5h10" stroke="#14261e" stroke-width="2" />
+        </svg>
+        <span>Loanboard</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="/" aria-current="page">Dashboard</a>
+        <a href="/report.html" data-nav="report">Repayment report</a>
+      </nav>
+    </header>
+
+    <main data-testid="dashboard-root">
+      <section class="intro">
+        <p class="eyebrow">Home loan desk</p>
+        <h1>Loan dashboard</h1>
+        <p class="lede">
+          A reducing-balance summary of the loan on the desk. Change the loan
+          in the repayment report and the figures here follow.
+        </p>
+        <p data-testid="desk-summary" class="desk-summary"></p>
+      </section>
+
+      <p data-testid="page-error" class="form-error" hidden></p>
+
+      <section class="summary-grid" aria-label="Loan summary">
+        <article class="metric-card primary">
+          <h2>Monthly EMI</h2>
+          <p data-testid="monthly-emi" class="metric"></p>
+        </article>
+        <article class="metric-card">
+          <h2>Total interest</h2>
+          <p data-testid="total-interest" class="metric"></p>
+        </article>
+        <article class="metric-card">
+          <h2>Total payment</h2>
+          <p data-testid="total-payment" class="metric"></p>
+        </article>
+        <article class="metric-card">
+          <h2>Principal</h2>
+          <p data-testid="principal" class="metric"></p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-copy">
+          <h2>Payment breakup</h2>
+          <p>
+            Principal against the interest you pay over the full tenure. Both
+            slices come from the same schedule as the cards above.
+          </p>
+          <ul class="legend">
+            <li>
+              <span class="swatch swatch-principal" aria-hidden="true"></span>
+              Principal
+              <strong data-testid="chart-principal"></strong>
+            </li>
+            <li>
+              <span class="swatch swatch-interest" aria-hidden="true"></span>
+              Interest
+              <strong data-testid="chart-interest"></strong>
+            </li>
+          </ul>
+          <a class="button" href="/report.html" data-testid="open-report">Open repayment report</a>
+        </div>
+        <div class="chart-frame">
+          <canvas data-testid="payment-chart"></canvas>
+        </div>
+      </section>
+
+      <p class="note">
+        The instalment is rounded to the nearest rupee. Interest is the sum of
+        each month’s rounded interest, so it can differ by a few rupees from
+        EMI × months − principal.
+      </p>
+    </main>
+
+    <script type="module" src="/src/dashboard.ts"></script>
+  </body>
+</html>

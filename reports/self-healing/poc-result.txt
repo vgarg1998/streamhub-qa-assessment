@@ -1,0 +1,15 @@
+PASS  positional-emi
+  proposal: page.getByRole("heading", { name: "Monthly EMI", level: 2 }).locator("..").getByRole("paragraph")
+  validation: one element, amount ₹33,038
+PASS  absolute-xpath-chart
+  proposal: page.getByRole("img", { name: "Payment breakup chart. Principal 2500000. Interest 1464500." })
+  validation: one visible image, Payment breakup chart. Principal 2500000. Interest 1464500.
+PASS  wrong-button-name
+  proposal: page.getByRole("button", { name: "Calculate" })
+  validation: one enabled element named Calculate
+PASS  wrong-field-label
+  proposal: page.getByLabel("Loan amount")
+  validation: one element
+PASS  highcharts-bars
+  proposal: page.getByRole("img", { name: "Yearly repayment chart with 10 bars. Largest amount 375737." })
+  validation: one visible image, Yearly repayment chart with 10 bars. Largest amount 375737.

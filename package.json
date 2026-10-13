@@ -1,0 +1,31 @@
+{
+  "name": "loanboard",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Section A of the Streamhub QA automation assessment: a loan dashboard and the Playwright + Cucumber suite around it.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.web.json --noEmit",
+    "test:cucumber": "cucumber-js",
+    "test": "node scripts/ensure-dirs.js && CUCUMBER_PUBLISH_QUIET=true start-server-and-test vite http://127.0.0.1:5173 test:cucumber",
+    "test:self-healing": "node scripts/ensure-dirs.js && CUCUMBER_PUBLISH_QUIET=true start-server-and-test vite http://127.0.0.1:5173 \"cucumber-js --profile selfHealing\"",
+    "heal:poc": "node scripts/ensure-dirs.js && start-server-and-test vite http://127.0.0.1:5173 \"ts-node --transpile-only tests/self-heal/poc.ts\"",
+    "sql": "node scripts/ensure-dirs.js && node --disable-warning=ExperimentalWarning sql/run-sql.mjs"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.8"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.2.0",
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.13.10",
+    "dotenv": "^16.4.7",
+    "start-server-and-test": "^2.0.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.2"
+  }
+}

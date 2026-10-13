@@ -1,0 +1,123 @@
+You are repairing one Playwright locator.
+
+Intent: The yearly principal and interest chart
+Broken locator: page.locator(".highcharts-series-group rect")
+
+Failure:
+locator.waitFor: Timeout 2000ms exceeded.
+Call log:
+  - waiting for locator('.highcharts-series-group rect') to be visible
+
+
+Accessibility snapshot:
+- banner:
+  - link "Loanboard":
+    - /url: /
+  - navigation "Primary":
+    - link "Dashboard":
+      - /url: /?amount=2500000&rate=10&years=10
+    - link "Repayment report":
+      - /url: /report.html
+- main:
+  - paragraph: Schedule
+  - heading "Repayment report" [level=1]
+  - paragraph: Enter a loan, then read the instalment and the year-by-year split of principal and interest.
+  - text: Loan amount
+  - spinbutton "Loan amount": "2500000"
+  - paragraph: Rupees. The desk default is 25 lakh.
+  - text: Annual interest rate
+  - spinbutton "Annual interest rate": "10"
+  - paragraph: Percent per year. Monthly rate is this divided by 12.
+  - text: Tenure in years
+  - spinbutton "Tenure in years": "10"
+  - text: Schedule filter
+  - combobox "Schedule filter":
+    - option "All years" [selected]
+    - option "Interest-heavy years"
+    - option "Principal-heavy years"
+  - paragraph: A year is interest-heavy when interest paid exceeds principal paid. Ties are left out of both filters.
+  - button "Calculate"
+  - region "Calculated loan":
+    - article:
+      - heading "Monthly EMI" [level=2]
+      - paragraph: ₹33,038
+    - article:
+      - heading "Total interest" [level=2]
+      - paragraph: ₹14,64,500
+    - article:
+      - heading "Total payment" [level=2]
+      - paragraph: ₹39,64,500
+    - article:
+      - heading "Principal" [level=2]
+      - paragraph: ₹25,00,000
+  - heading "Yearly principal and interest" [level=2]
+  - paragraph: Showing 10 all years.
+  - list:
+    - listitem: Principal paid
+    - listitem: Interest paid
+  - paragraph: 10 bars. Largest amount plotted is ₹3,75,737.
+  - img "Yearly repayment chart with 10 bars. Largest amount 375737."
+  - table "Yearly repayment schedule":
+    - caption: Yearly repayment schedule
+    - rowgroup:
+      - row "Year Principal paid Interest paid Closing balance":
+        - columnheader "Year"
+        - columnheader "Principal paid"
+        - columnheader "Interest paid"
+        - columnheader "Closing balance"
+    - rowgroup:
+      - row "1 ₹1,53,359 ₹2,43,097 ₹23,46,641":
+        - rowheader "1"
+        - cell "₹1,53,359"
+        - cell "₹2,43,097"
+        - cell "₹23,46,641"
+      - row "2 ₹1,69,417 ₹2,27,039 ₹21,77,224":
+        - rowheader "2"
+        - cell "₹1,69,417"
+        - cell "₹2,27,039"
+        - cell "₹21,77,224"
+      - row "3 ₹1,87,157 ₹2,09,299 ₹19,90,067":
+        - rowheader "3"
+        - cell "₹1,87,157"
+        - cell "₹2,09,299"
+        - cell "₹19,90,067"
+      - row "4 ₹2,06,754 ₹1,89,702 ₹17,83,313":
+        - rowheader "4"
+        - cell "₹2,06,754"
+        - cell "₹1,89,702"
+        - cell "₹17,83,313"
+      - row "5 ₹2,28,405 ₹1,68,051 ₹15,54,908":
+        - rowheader "5"
+        - cell "₹2,28,405"
+        - cell "₹1,68,051"
+        - cell "₹15,54,908"
+      - row "6 ₹2,52,322 ₹1,44,134 ₹13,02,586":
+        - rowheader "6"
+        - cell "₹2,52,322"
+        - cell "₹1,44,134"
+        - cell "₹13,02,586"
+      - row "7 ₹2,78,743 ₹1,17,713 ₹10,23,843":
+        - rowheader "7"
+        - cell "₹2,78,743"
+        - cell "₹1,17,713"
+        - cell "₹10,23,843"
+      - row "8 ₹3,07,930 ₹88,526 ₹7,15,913":
+        - rowheader "8"
+        - cell "₹3,07,930"
+        - cell "₹88,526"
+        - cell "₹7,15,913"
+      - row "9 ₹3,40,176 ₹56,280 ₹3,75,737":
+        - rowheader "9"
+        - cell "₹3,40,176"
+        - cell "₹56,280"
+        - cell "₹3,75,737"
+      - row "10 ₹3,75,737 ₹20,659 ₹0":
+        - rowheader "10"
+        - cell "₹3,75,737"
+        - cell "₹20,659"
+        - cell "₹0"
+  - paragraph: The instalment is rounded to the nearest rupee. The final month clears the remaining balance, so total interest can differ by a few rupees from EMI × months − principal.
+
+Reply with one locator using getByRole, getByLabel, getByText, or getByTestId.
+It must match exactly one element.
+Do not weaken the assertion and do not edit the feature file.

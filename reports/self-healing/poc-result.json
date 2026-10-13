@@ -1,0 +1,42 @@
+[
+  {
+    "id": "positional-emi",
+    "detected": true,
+    "error": "locator.waitFor: Timeout 2000ms exceeded.",
+    "proposal": "page.getByRole(\"heading\", { name: \"Monthly EMI\", level: 2 }).locator(\"..\").getByRole(\"paragraph\")",
+    "validation": "one element, amount ₹33,038",
+    "ok": true
+  },
+  {
+    "id": "absolute-xpath-chart",
+    "detected": true,
+    "error": "locator.waitFor: Timeout 2000ms exceeded.",
+    "proposal": "page.getByRole(\"img\", { name: \"Payment breakup chart. Principal 2500000. Interest 1464500.\" })",
+    "validation": "one visible image, Payment breakup chart. Principal 2500000. Interest 1464500.",
+    "ok": true
+  },
+  {
+    "id": "wrong-button-name",
+    "detected": true,
+    "error": "locator.waitFor: Timeout 2000ms exceeded.",
+    "proposal": "page.getByRole(\"button\", { name: \"Calculate\" })",
+    "validation": "one enabled element named Calculate",
+    "ok": true
+  },
+  {
+    "id": "wrong-field-label",
+    "detected": true,
+    "error": "locator.waitFor: Timeout 2000ms exceeded.",
+    "proposal": "page.getByLabel(\"Loan amount\")",
+    "validation": "one element",
+    "ok": true
+  },
+  {
+    "id": "highcharts-bars",
+    "detected": true,
+    "error": "locator.waitFor: Timeout 2000ms exceeded.",
+    "proposal": "page.getByRole(\"img\", { name: \"Yearly repayment chart with 10 bars. Largest amount 375737.\" })",
+    "validation": "one visible image, Yearly repayment chart with 10 bars. Largest amount 375737.",
+    "ok": true
+  }
+]

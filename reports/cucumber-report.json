@@ -1,0 +1,938 @@
+[
+  {
+    "description": "  The dashboard is the summary view. The numbers come from the same\n  reducing-balance schedule as the repayment report. The expected EMI is\n  computed again in the test oracle, not read back from the app.",
+    "elements": [
+      {
+        "description": "",
+        "id": "loan-dashboard;the-dashboard-loads-a-25-lakh-loan-and-a-non-zero-breakup-chart",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "The dashboard loads a 25 lakh loan and a non-zero breakup chart",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 8024886875
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I open the loan dashboard for 2500000 at 10.0% for 10 years",
+            "match": {
+              "location": "tests/steps/dashboard.steps.ts:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1071071249
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "the dashboard heading is visible",
+            "match": {
+              "location": "tests/steps/dashboard.steps.ts:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8301292
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "the monthly EMI matches the independent calculation",
+            "match": {
+              "location": "tests/steps/report.steps.ts:48"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3887209
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "the payment chart is visible with the principal and interest from that calculation",
+            "match": {
+              "location": "tests/steps/dashboard.steps.ts:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14538709
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "the page has no uncaught errors",
+            "match": {
+              "location": "tests/steps/report.steps.ts:132"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1089082
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 80848540
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "loan-dashboard;the-dashboard-opens-the-repayment-report",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "The dashboard opens the repayment report",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 172438084
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 15,
+            "name": "I open the loan dashboard for 2500000 at 10.0% for 10 years",
+            "match": {
+              "location": "tests/steps/dashboard.steps.ts:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 103878458
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "I open the repayment report from the dashboard",
+            "match": {
+              "location": "tests/steps/dashboard.steps.ts:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 146989041
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "the report heading is visible",
+            "match": {
+              "location": "tests/steps/report.steps.ts:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5168459
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "the page has no uncaught errors",
+            "match": {
+              "location": "tests/steps/report.steps.ts:132"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 557000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 150328666
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "loan-dashboard",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Loan dashboard",
+    "tags": [
+      {
+        "name": "@ui",
+        "line": 1
+      }
+    ],
+    "uri": "tests/features/dashboard.feature"
+  },
+  {
+    "description": "  JSONPlaceholder is a mock. It stores nothing and it does not validate a post.\n  These scenarios send the three bad payloads from the assessment and record\n  the live contract: HTTP 201, a JSON body, and no server error.\n  Asserting HTTP 400 would fail against the real service for the wrong reason.",
+    "elements": [
+      {
+        "description": "",
+        "id": "jsonplaceholder-post-boundaries;an-excessively-long-title-does-not-cause-a-server-error",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "An excessively long title does not cause a server error",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 24831624
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I post a title that is 5000 characters long",
+            "match": {
+              "location": "tests/steps/api.steps.ts:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1120550832
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "the post response is not a server failure",
+            "match": {
+              "location": "tests/steps/api.steps.ts:53"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3315542
+            },
+            "embeddings": [
+              {
+                "data": "ewogICJzdGF0dXMiOiAyMDEsCiAgImNvbnRlbnRUeXBlIjogImFwcGxpY2F0aW9uL2pzb247IGNoYXJzZXQ9dXRmLTgiLAogICJpZCI6IDEwMSwKICAidGl0bGVMZW5ndGgiOiA1MDAwLAogICJoYXNVc2VySWQiOiB0cnVlCn0=",
+                "mime_type": "application/json"
+              }
+            ]
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "the created post echoes the submitted title",
+            "match": {
+              "location": "tests/steps/api.steps.ts:77"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 790958
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 5800499
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-post-boundaries;special-characters-in-the-title-do-not-cause-a-server-error",
+        "keyword": "Scenario",
+        "line": 13,
+        "name": "Special characters in the title do not cause a server error",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1224167
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "I post a title containing unsupported special characters",
+            "match": {
+              "location": "tests/steps/api.steps.ts:45"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 484827208
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "the post response is not a server failure",
+            "match": {
+              "location": "tests/steps/api.steps.ts:53"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4069332
+            },
+            "embeddings": [
+              {
+                "data": "ewogICJzdGF0dXMiOiAyMDEsCiAgImNvbnRlbnRUeXBlIjogImFwcGxpY2F0aW9uL2pzb247IGNoYXJzZXQ9dXRmLTgiLAogICJpZCI6IDEwMSwKICAidGl0bGVMZW5ndGgiOiA2NCwKICAiaGFzVXNlcklkIjogdHJ1ZQp9",
+                "mime_type": "application/json"
+              }
+            ]
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "the created post echoes the submitted title",
+            "match": {
+              "location": "tests/steps/api.steps.ts:77"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 896917
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1937167
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "jsonplaceholder-post-boundaries;a-missing-userid-does-not-cause-a-server-error",
+        "keyword": "Scenario",
+        "line": 18,
+        "name": "A missing userId does not cause a server error",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1473416
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 19,
+            "name": "I post a payload without a userId",
+            "match": {
+              "location": "tests/steps/api.steps.ts:49"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1549567750
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 20,
+            "name": "the post response is not a server failure",
+            "match": {
+              "location": "tests/steps/api.steps.ts:53"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3425375
+            },
+            "embeddings": [
+              {
+                "data": "ewogICJzdGF0dXMiOiAyMDEsCiAgImNvbnRlbnRUeXBlIjogImFwcGxpY2F0aW9uL2pzb247IGNoYXJzZXQ9dXRmLTgiLAogICJpZCI6IDEwMSwKICAidGl0bGVMZW5ndGgiOiA3LAogICJoYXNVc2VySWQiOiBmYWxzZQp9",
+                "mime_type": "application/json"
+              }
+            ]
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 21,
+            "name": "the created post has an id and no userId",
+            "match": {
+              "location": "tests/steps/api.steps.ts:81"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1615499
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2313334
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "jsonplaceholder-post-boundaries",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "JSONPlaceholder post boundaries",
+    "tags": [
+      {
+        "name": "@api",
+        "line": 1
+      }
+    ],
+    "uri": "tests/features/posts.feature"
+  },
+  {
+    "description": "  Submitting the form must match an expected EMI computed in the test suite.\n  The chart has to be on the page and plotted with amounts greater than zero.",
+    "elements": [
+      {
+        "description": "",
+        "id": "repayment-report;submitted-loan-matches-the-reducing-balance-formula",
+        "keyword": "Scenario Outline",
+        "line": 17,
+        "name": "Submitted loan matches the reducing-balance formula",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 187150666
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I open the repayment report",
+            "match": {
+              "location": "tests/steps/report.steps.ts:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 124930291
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I calculate a loan of 2500000 at 10.0% for 10 years",
+            "match": {
+              "location": "tests/steps/report.steps.ts:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 66532541
+            },
+            "embeddings": [
+              {
+                "data": "ewogICJpbnB1dCI6IHsKICAgICJwcmluY2lwYWwiOiAyNTAwMDAwLAogICAgImFubnVhbFBlcmNlbnQiOiAxMCwKICAgICJ5ZWFycyI6IDEwCiAgfSwKICAiZXhwZWN0ZWQiOiB7CiAgICAicHJpbmNpcGFsIjogMjUwMDAwMCwKICAgICJhbm51YWxQZXJjZW50IjogMTAsCiAgICAieWVhcnMiOiAxMCwKICAgICJlbWkiOiAzMzAzOCwKICAgICJ0b3RhbEludGVyZXN0IjogMTQ2NDUwMCwKICAgICJ0b3RhbFBheW1lbnQiOiAzOTY0NTAwLAogICAgInNjaGVkdWxlIjogWwogICAgICB7CiAgICAgICAgInllYXIiOiAxLAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMTUzMzU5LAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAyNDMwOTcsCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMjM0NjY0MQogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiAyLAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMTY5NDE3LAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAyMjcwMzksCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMjE3NzIyNAogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiAzLAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMTg3MTU3LAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAyMDkyOTksCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMTk5MDA2NwogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiA0LAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMjA2NzU0LAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAxODk3MDIsCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMTc4MzMxMwogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiA1LAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMjI4NDA1LAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAxNjgwNTEsCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMTU1NDkwOAogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiA2LAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMjUyMzIyLAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAxNDQxMzQsCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMTMwMjU4NgogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiA3LAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMjc4NzQzLAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAxMTc3MTMsCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMTAyMzg0MwogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiA4LAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMzA3OTMwLAogICAgICAgICJpbnRlcmVzdFBhaWQiOiA4ODUyNiwKICAgICAgICAiY2xvc2luZ0JhbGFuY2UiOiA3MTU5MTMKICAgICAgfSwKICAgICAgewogICAgICAgICJ5ZWFyIjogOSwKICAgICAgICAicHJpbmNpcGFsUGFpZCI6IDM0MDE3NiwKICAgICAgICAiaW50ZXJlc3RQYWlkIjogNTYyODAsCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMzc1NzM3CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAieWVhciI6IDEwLAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMzc1NzM3LAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAyMDY1OSwKICAgICAgICAiY2xvc2luZ0JhbGFuY2UiOiAwCiAgICAgIH0KICAgIF0KICB9Cn0=",
+                "mime_type": "application/json"
+              }
+            ]
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "the report heading is visible",
+            "match": {
+              "location": "tests/steps/report.steps.ts:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3165084
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "the monthly EMI matches the independent calculation",
+            "match": {
+              "location": "tests/steps/report.steps.ts:48"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2077416
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "the interest and total payment match the independent calculation",
+            "match": {
+              "location": "tests/steps/report.steps.ts:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 47707125
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "the yearly chart is visible with non-zero bars",
+            "match": {
+              "location": "tests/steps/report.steps.ts:67"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11689540
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "the page has no uncaught errors",
+            "match": {
+              "location": "tests/steps/report.steps.ts:132"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 605333
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 145253832
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "repayment-report;submitted-loan-matches-the-reducing-balance-formula",
+        "keyword": "Scenario Outline",
+        "line": 18,
+        "name": "Submitted loan matches the reducing-balance formula",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 180560666
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I open the repayment report",
+            "match": {
+              "location": "tests/steps/report.steps.ts:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 111395916
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I calculate a loan of 5000000 at 7.5% for 15 years",
+            "match": {
+              "location": "tests/steps/report.steps.ts:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 62255750
+            },
+            "embeddings": [
+              {
+                "data": "ewogICJpbnB1dCI6IHsKICAgICJwcmluY2lwYWwiOiA1MDAwMDAwLAogICAgImFubnVhbFBlcmNlbnQiOiA3LjUsCiAgICAieWVhcnMiOiAxNQogIH0sCiAgImV4cGVjdGVkIjogewogICAgInByaW5jaXBhbCI6IDUwMDAwMDAsCiAgICAiYW5udWFsUGVyY2VudCI6IDcuNSwKICAgICJ5ZWFycyI6IDE1LAogICAgImVtaSI6IDQ2MzUxLAogICAgInRvdGFsSW50ZXJlc3QiOiAzMzQzMDUyLAogICAgInRvdGFsUGF5bWVudCI6IDgzNDMwNTIsCiAgICAic2NoZWR1bGUiOiBbCiAgICAgIHsKICAgICAgICAieWVhciI6IDEsCiAgICAgICAgInByaW5jaXBhbFBhaWQiOiAxODc1NzIsCiAgICAgICAgImludGVyZXN0UGFpZCI6IDM2ODY0MCwKICAgICAgICAiY2xvc2luZ0JhbGFuY2UiOiA0ODEyNDI4CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAieWVhciI6IDIsCiAgICAgICAgInByaW5jaXBhbFBhaWQiOiAyMDIxMzMsCiAgICAgICAgImludGVyZXN0UGFpZCI6IDM1NDA3OSwKICAgICAgICAiY2xvc2luZ0JhbGFuY2UiOiA0NjEwMjk1CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAieWVhciI6IDMsCiAgICAgICAgInByaW5jaXBhbFBhaWQiOiAyMTc4MjgsCiAgICAgICAgImludGVyZXN0UGFpZCI6IDMzODM4NCwKICAgICAgICAiY2xvc2luZ0JhbGFuY2UiOiA0MzkyNDY3CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAieWVhciI6IDQsCiAgICAgICAgInByaW5jaXBhbFBhaWQiOiAyMzQ3MzgsCiAgICAgICAgImludGVyZXN0UGFpZCI6IDMyMTQ3NCwKICAgICAgICAiY2xvc2luZ0JhbGFuY2UiOiA0MTU3NzI5CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAieWVhciI6IDUsCiAgICAgICAgInByaW5jaXBhbFBhaWQiOiAyNTI5NjAsCiAgICAgICAgImludGVyZXN0UGFpZCI6IDMwMzI1MiwKICAgICAgICAiY2xvc2luZ0JhbGFuY2UiOiAzOTA0NzY5CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAieWVhciI6IDYsCiAgICAgICAgInByaW5jaXBhbFBhaWQiOiAyNzI1OTgsCiAgICAgICAgImludGVyZXN0UGFpZCI6IDI4MzYxNCwKICAgICAgICAiY2xvc2luZ0JhbGFuY2UiOiAzNjMyMTcxCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAieWVhciI6IDcsCiAgICAgICAgInByaW5jaXBhbFBhaWQiOiAyOTM3NjEsCiAgICAgICAgImludGVyZXN0UGFpZCI6IDI2MjQ1MSwKICAgICAgICAiY2xvc2luZ0JhbGFuY2UiOiAzMzM4NDEwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAieWVhciI6IDgsCiAgICAgICAgInByaW5jaXBhbFBhaWQiOiAzMTY1NjYsCiAgICAgICAgImludGVyZXN0UGFpZCI6IDIzOTY0NiwKICAgICAgICAiY2xvc2luZ0JhbGFuY2UiOiAzMDIxODQ0CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAieWVhciI6IDksCiAgICAgICAgInByaW5jaXBhbFBhaWQiOiAzNDExNDQsCiAgICAgICAgImludGVyZXN0UGFpZCI6IDIxNTA2OCwKICAgICAgICAiY2xvc2luZ0JhbGFuY2UiOiAyNjgwNzAwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAieWVhciI6IDEwLAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMzY3NjI3LAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAxODg1ODUsCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMjMxMzA3MwogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiAxMSwKICAgICAgICAicHJpbmNpcGFsUGFpZCI6IDM5NjE2NiwKICAgICAgICAiaW50ZXJlc3RQYWlkIjogMTYwMDQ2LAogICAgICAgICJjbG9zaW5nQmFsYW5jZSI6IDE5MTY5MDcKICAgICAgfSwKICAgICAgewogICAgICAgICJ5ZWFyIjogMTIsCiAgICAgICAgInByaW5jaXBhbFBhaWQiOiA0MjY5MjMsCiAgICAgICAgImludGVyZXN0UGFpZCI6IDEyOTI4OSwKICAgICAgICAiY2xvc2luZ0JhbGFuY2UiOiAxNDg5OTg0CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAieWVhciI6IDEzLAogICAgICAgICJwcmluY2lwYWxQYWlkIjogNDYwMDY1LAogICAgICAgICJpbnRlcmVzdFBhaWQiOiA5NjE0NywKICAgICAgICAiY2xvc2luZ0JhbGFuY2UiOiAxMDI5OTE5CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAieWVhciI6IDE0LAogICAgICAgICJwcmluY2lwYWxQYWlkIjogNDk1Nzc4LAogICAgICAgICJpbnRlcmVzdFBhaWQiOiA2MDQzNCwKICAgICAgICAiY2xvc2luZ0JhbGFuY2UiOiA1MzQxNDEKICAgICAgfSwKICAgICAgewogICAgICAgICJ5ZWFyIjogMTUsCiAgICAgICAgInByaW5jaXBhbFBhaWQiOiA1MzQxNDEsCiAgICAgICAgImludGVyZXN0UGFpZCI6IDIxOTQzLAogICAgICAgICJjbG9zaW5nQmFsYW5jZSI6IDAKICAgICAgfQogICAgXQogIH0KfQ==",
+                "mime_type": "application/json"
+              }
+            ]
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "the report heading is visible",
+            "match": {
+              "location": "tests/steps/report.steps.ts:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3128957
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "the monthly EMI matches the independent calculation",
+            "match": {
+              "location": "tests/steps/report.steps.ts:48"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 42470208
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "the interest and total payment match the independent calculation",
+            "match": {
+              "location": "tests/steps/report.steps.ts:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6535374
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "the yearly chart is visible with non-zero bars",
+            "match": {
+              "location": "tests/steps/report.steps.ts:67"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9403374
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "the page has no uncaught errors",
+            "match": {
+              "location": "tests/steps/report.steps.ts:132"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 362082
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 149271875
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "repayment-report;interest-heavy-years-are-the-early-years-of-a-25-lakh-loan",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "Interest-heavy years are the early years of a 25 lakh loan",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 170134250
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 21,
+            "name": "I open the repayment report",
+            "match": {
+              "location": "tests/steps/report.steps.ts:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 113332916
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 22,
+            "name": "I calculate a loan of 2500000 at 10.0% for 10 years",
+            "match": {
+              "location": "tests/steps/report.steps.ts:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 61192708
+            },
+            "embeddings": [
+              {
+                "data": "ewogICJpbnB1dCI6IHsKICAgICJwcmluY2lwYWwiOiAyNTAwMDAwLAogICAgImFubnVhbFBlcmNlbnQiOiAxMCwKICAgICJ5ZWFycyI6IDEwCiAgfSwKICAiZXhwZWN0ZWQiOiB7CiAgICAicHJpbmNpcGFsIjogMjUwMDAwMCwKICAgICJhbm51YWxQZXJjZW50IjogMTAsCiAgICAieWVhcnMiOiAxMCwKICAgICJlbWkiOiAzMzAzOCwKICAgICJ0b3RhbEludGVyZXN0IjogMTQ2NDUwMCwKICAgICJ0b3RhbFBheW1lbnQiOiAzOTY0NTAwLAogICAgInNjaGVkdWxlIjogWwogICAgICB7CiAgICAgICAgInllYXIiOiAxLAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMTUzMzU5LAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAyNDMwOTcsCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMjM0NjY0MQogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiAyLAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMTY5NDE3LAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAyMjcwMzksCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMjE3NzIyNAogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiAzLAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMTg3MTU3LAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAyMDkyOTksCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMTk5MDA2NwogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiA0LAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMjA2NzU0LAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAxODk3MDIsCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMTc4MzMxMwogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiA1LAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMjI4NDA1LAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAxNjgwNTEsCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMTU1NDkwOAogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiA2LAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMjUyMzIyLAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAxNDQxMzQsCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMTMwMjU4NgogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiA3LAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMjc4NzQzLAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAxMTc3MTMsCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMTAyMzg0MwogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiA4LAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMzA3OTMwLAogICAgICAgICJpbnRlcmVzdFBhaWQiOiA4ODUyNiwKICAgICAgICAiY2xvc2luZ0JhbGFuY2UiOiA3MTU5MTMKICAgICAgfSwKICAgICAgewogICAgICAgICJ5ZWFyIjogOSwKICAgICAgICAicHJpbmNpcGFsUGFpZCI6IDM0MDE3NiwKICAgICAgICAiaW50ZXJlc3RQYWlkIjogNTYyODAsCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMzc1NzM3CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAieWVhciI6IDEwLAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMzc1NzM3LAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAyMDY1OSwKICAgICAgICAiY2xvc2luZ0JhbGFuY2UiOiAwCiAgICAgIH0KICAgIF0KICB9Cn0=",
+                "mime_type": "application/json"
+              }
+            ]
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "I filter the schedule to interest-heavy years",
+            "match": {
+              "location": "tests/steps/report.steps.ts:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 52325082
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 24,
+            "name": "every visible year paid more interest than principal",
+            "match": {
+              "location": "tests/steps/report.steps.ts:109"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14175709
+            },
+            "embeddings": [
+              {
+                "data": "WwogIHsKICAgICJwcmluY2lwYWwiOiAxNTMzNTksCiAgICAiaW50ZXJlc3QiOiAyNDMwOTcKICB9LAogIHsKICAgICJwcmluY2lwYWwiOiAxNjk0MTcsCiAgICAiaW50ZXJlc3QiOiAyMjcwMzkKICB9LAogIHsKICAgICJwcmluY2lwYWwiOiAxODcxNTcsCiAgICAiaW50ZXJlc3QiOiAyMDkyOTkKICB9Cl0=",
+                "mime_type": "application/json"
+              }
+            ]
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "the yearly chart shows the same number of bars as visible years",
+            "match": {
+              "location": "tests/steps/report.steps.ts:121"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9979207
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 115263791
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "repayment-report;principal-heavy-years-are-the-later-years-of-a-25-lakh-loan",
+        "keyword": "Scenario",
+        "line": 27,
+        "name": "Principal-heavy years are the later years of a 25 lakh loan",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 169388832
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 28,
+            "name": "I open the repayment report",
+            "match": {
+              "location": "tests/steps/report.steps.ts:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 113037208
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 29,
+            "name": "I calculate a loan of 2500000 at 10.0% for 10 years",
+            "match": {
+              "location": "tests/steps/report.steps.ts:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 59583125
+            },
+            "embeddings": [
+              {
+                "data": "ewogICJpbnB1dCI6IHsKICAgICJwcmluY2lwYWwiOiAyNTAwMDAwLAogICAgImFubnVhbFBlcmNlbnQiOiAxMCwKICAgICJ5ZWFycyI6IDEwCiAgfSwKICAiZXhwZWN0ZWQiOiB7CiAgICAicHJpbmNpcGFsIjogMjUwMDAwMCwKICAgICJhbm51YWxQZXJjZW50IjogMTAsCiAgICAieWVhcnMiOiAxMCwKICAgICJlbWkiOiAzMzAzOCwKICAgICJ0b3RhbEludGVyZXN0IjogMTQ2NDUwMCwKICAgICJ0b3RhbFBheW1lbnQiOiAzOTY0NTAwLAogICAgInNjaGVkdWxlIjogWwogICAgICB7CiAgICAgICAgInllYXIiOiAxLAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMTUzMzU5LAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAyNDMwOTcsCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMjM0NjY0MQogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiAyLAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMTY5NDE3LAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAyMjcwMzksCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMjE3NzIyNAogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiAzLAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMTg3MTU3LAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAyMDkyOTksCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMTk5MDA2NwogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiA0LAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMjA2NzU0LAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAxODk3MDIsCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMTc4MzMxMwogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiA1LAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMjI4NDA1LAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAxNjgwNTEsCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMTU1NDkwOAogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiA2LAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMjUyMzIyLAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAxNDQxMzQsCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMTMwMjU4NgogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiA3LAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMjc4NzQzLAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAxMTc3MTMsCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMTAyMzg0MwogICAgICB9LAogICAgICB7CiAgICAgICAgInllYXIiOiA4LAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMzA3OTMwLAogICAgICAgICJpbnRlcmVzdFBhaWQiOiA4ODUyNiwKICAgICAgICAiY2xvc2luZ0JhbGFuY2UiOiA3MTU5MTMKICAgICAgfSwKICAgICAgewogICAgICAgICJ5ZWFyIjogOSwKICAgICAgICAicHJpbmNpcGFsUGFpZCI6IDM0MDE3NiwKICAgICAgICAiaW50ZXJlc3RQYWlkIjogNTYyODAsCiAgICAgICAgImNsb3NpbmdCYWxhbmNlIjogMzc1NzM3CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAieWVhciI6IDEwLAogICAgICAgICJwcmluY2lwYWxQYWlkIjogMzc1NzM3LAogICAgICAgICJpbnRlcmVzdFBhaWQiOiAyMDY1OSwKICAgICAgICAiY2xvc2luZ0JhbGFuY2UiOiAwCiAgICAgIH0KICAgIF0KICB9Cn0=",
+                "mime_type": "application/json"
+              }
+            ]
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "I filter the schedule to principal-heavy years",
+            "match": {
+              "location": "tests/steps/report.steps.ts:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 49413209
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 31,
+            "name": "every visible year paid more principal than interest",
+            "match": {
+              "location": "tests/steps/report.steps.ts:115"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 28648584
+            },
+            "embeddings": [
+              {
+                "data": "WwogIHsKICAgICJwcmluY2lwYWwiOiAyMDY3NTQsCiAgICAiaW50ZXJlc3QiOiAxODk3MDIKICB9LAogIHsKICAgICJwcmluY2lwYWwiOiAyMjg0MDUsCiAgICAiaW50ZXJlc3QiOiAxNjgwNTEKICB9LAogIHsKICAgICJwcmluY2lwYWwiOiAyNTIzMjIsCiAgICAiaW50ZXJlc3QiOiAxNDQxMzQKICB9LAogIHsKICAgICJwcmluY2lwYWwiOiAyNzg3NDMsCiAgICAiaW50ZXJlc3QiOiAxMTc3MTMKICB9LAogIHsKICAgICJwcmluY2lwYWwiOiAzMDc5MzAsCiAgICAiaW50ZXJlc3QiOiA4ODUyNgogIH0sCiAgewogICAgInByaW5jaXBhbCI6IDM0MDE3NiwKICAgICJpbnRlcmVzdCI6IDU2MjgwCiAgfSwKICB7CiAgICAicHJpbmNpcGFsIjogMzc1NzM3LAogICAgImludGVyZXN0IjogMjA2NTkKICB9Cl0=",
+                "mime_type": "application/json"
+              }
+            ]
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 32,
+            "name": "the yearly chart shows the same number of bars as visible years",
+            "match": {
+              "location": "tests/steps/report.steps.ts:121"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7525250
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 116636583
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "repayment-report",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Repayment report",
+    "tags": [
+      {
+        "name": "@ui",
+        "line": 1
+      }
+    ],
+    "uri": "tests/features/report.feature"
+  }
+]

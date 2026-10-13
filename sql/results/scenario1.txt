@@ -1,0 +1,32 @@
+[
+  {
+    "first_id": 1,
+    "account_a": "A",
+    "account_b": "B",
+    "amount_sent": 1000,
+    "sent_at": "2024-01-15 10:00:00",
+    "return_id": 2,
+    "amount_returned": 950,
+    "returned_at": "2024-01-15 18:00:00"
+  },
+  {
+    "first_id": 7,
+    "account_a": "D",
+    "account_b": "E",
+    "amount_sent": 800,
+    "sent_at": "2024-03-01 08:00:00",
+    "return_id": 8,
+    "amount_returned": 880,
+    "returned_at": "2024-03-02 07:30:00"
+  },
+  {
+    "first_id": 11,
+    "account_a": "H",
+    "account_b": "I",
+    "amount_sent": 400,
+    "sent_at": "2024-05-01 12:00:00",
+    "return_id": 12,
+    "amount_returned": 400,
+    "returned_at": "2024-05-02 12:00:00"
+  }
+]
