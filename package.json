@@ -7,13 +7,15 @@
     "node": ">=22"
   },
   "scripts": {
-    "dev": "vite",
-    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.web.json --noEmit",
+    "dev": "node scripts/check-node.js && vite",
+    "typecheck": "node scripts/check-node.js && tsc -p tsconfig.json --noEmit && tsc -p tsconfig.web.json --noEmit",
     "test:cucumber": "cucumber-js",
-    "test": "node scripts/ensure-dirs.js && CUCUMBER_PUBLISH_QUIET=true start-server-and-test vite http://127.0.0.1:5173 test:cucumber",
-    "test:self-healing": "node scripts/ensure-dirs.js && CUCUMBER_PUBLISH_QUIET=true start-server-and-test vite http://127.0.0.1:5173 \"cucumber-js --profile selfHealing\"",
-    "heal:poc": "node scripts/ensure-dirs.js && start-server-and-test vite http://127.0.0.1:5173 \"ts-node --transpile-only tests/self-heal/poc.ts\"",
-    "sql": "node scripts/ensure-dirs.js && node --disable-warning=ExperimentalWarning sql/run-sql.mjs"
+    "test:self-healing:cucumber": "cucumber-js --profile selfHealing",
+    "heal:poc:run": "ts-node --transpile-only tests/self-heal/poc.ts",
+    "test": "node scripts/check-node.js && node scripts/ensure-dirs.js && cross-env CUCUMBER_PUBLISH_QUIET=true start-server-and-test vite http://127.0.0.1:5173 test:cucumber",
+    "test:self-healing": "node scripts/check-node.js && node scripts/ensure-dirs.js && cross-env CUCUMBER_PUBLISH_QUIET=true start-server-and-test vite http://127.0.0.1:5173 test:self-healing:cucumber",
+    "heal:poc": "node scripts/check-node.js && node scripts/ensure-dirs.js && start-server-and-test vite http://127.0.0.1:5173 heal:poc:run",
+    "sql": "node scripts/check-node.js && node scripts/ensure-dirs.js && node --disable-warning=ExperimentalWarning sql/run-sql.mjs"
   },
   "dependencies": {
     "chart.js": "^4.4.8"
@@ -22,6 +24,7 @@
     "@cucumber/cucumber": "^11.2.0",
     "@playwright/test": "^1.51.1",
     "@types/node": "^22.13.10",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.4.7",
     "start-server-and-test": "^2.0.11",
     "ts-node": "^10.9.2",

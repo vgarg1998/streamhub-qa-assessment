@@ -4,34 +4,76 @@ Section A of the Streamhub fullstack and QA automation assessment: a small loan 
 
 ## Setup
 
-Node.js 22 or newer. The SQL runner uses `node:sqlite`, which ships with Node 22.
+Clone the repo and run these commands. They are the whole setup. You need Node.js 22 or newer, and an internet connection for `npm install`, the Playwright browser download, and the API tests.
 
 ```bash
-nvm use
+git clone https://github.com/vgarg1998/streamhub-qa-assessment.git
+cd streamhub-qa-assessment
+node -v
 npm install
 npx playwright install chromium
 ```
 
-URLs live in `.env` (see `.env.example`). Tests read that file. They do not hardcode a host.
+`node -v` must print `v22` or higher. `npm install` stops with an error on an older Node. Install Node 22 from [nodejs.org](https://nodejs.org) and open a new terminal, then run the commands again.
+
+If you use nvm, this repo has an `.nvmrc` file:
+
+```bash
+nvm install
+nvm use
+```
+
+The app address is already in `.env`:
 
 ```text
 BASE_URL=http://127.0.0.1:5173
 API_BASE_URL=https://jsonplaceholder.typicode.com
 ```
 
+If `.env` is missing, create it from the example:
+
+```bash
+cp .env.example .env
+```
+
+On Windows Command Prompt, that copy is `copy .env.example .env`.
+
+Nothing else is required. Do not install a database. The SQL script uses SQLite built into Node 22.
+
 ## Run
 
-| Command | What it does |
-| --- | --- |
-| `npm run dev` | Starts the app at the `BASE_URL` |
-| `npm test` | Starts the app, runs the passing Cucumber suite, writes `reports/cucumber-report.html` |
-| `npm run test:self-healing` | Runs the five intentionally broken locators. **This command is supposed to fail.** |
-| `npm run heal:poc` | Detects those failures, proposes a replacement from the accessibility tree, and checks the proposal. Does not edit the tests. |
-| `npm run sql` | Loads the schema and seed into SQLite, runs both queries, writes screenshots under `sql/results/` |
+Port **5173** must be free. The test command starts the website on that port.
 
-Open `reports/cucumber-report.html` after `npm test`. Passing UI screenshots are in `reports/screenshots/`. API responses are in `reports/api/`.
+See the app:
 
-Latest passing run: 9 scenarios, 42 steps.
+```bash
+npm run dev
+```
+
+Then open [http://127.0.0.1:5173/](http://127.0.0.1:5173/) for the dashboard and [http://127.0.0.1:5173/report.html](http://127.0.0.1:5173/report.html) for the repayment report. Stop the server with Ctrl+C before running the tests, because they start the server themselves.
+
+Run the tests that must pass. This needs the internet, because three scenarios call JSONPlaceholder.
+
+```bash
+npm test
+```
+
+A passing run ends with 9 scenarios passed. The HTML report is `reports/cucumber-report.html`. Screenshots are in `reports/screenshots/`. API responses are in `reports/api/`.
+
+Run the SQL checks and refresh the result screenshots:
+
+```bash
+npm run sql
+```
+
+Screenshots are written to `sql/results/`.
+
+These two commands are part of the self-healing exercise. The first one is supposed to fail. The second one should pass and does not change any test files.
+
+```bash
+npm run test:self-healing
+npm run heal:poc
+```
 
 ## Architecture
 
